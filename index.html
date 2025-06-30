@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Navigation Bar -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -20,41 +21,64 @@
     </ul>
   </nav>
 
+  <!-- Welcome Section -->
   <section>
     <h1>Welcome to Our Travel Recommendations</h1>
     <p>Explore the best beaches, temples, and country-specific recommendations for your next vacation!</p>
   </section>
 
+  <!-- Beach Recommendations -->
   <section id="beach-section">
     <h2>Beach Recommendations</h2>
+
     <article>
       <h3>Sunny Shores Beach</h3>
       <img src="images/beach1.jpg" alt="Sunny Shores Beach" width="300" />
-      <img src="images/beach2.jpg" alt="Sunny Shores Beach Sunset" width="300" />
-      <p>Enjoy crystal clear waters and white sands at Sunny Shores Beach, perfect for relaxation and water sports.</p>
+      <p>Crystal clear waters and soft sands make this beach perfect for sunbathing and swimming.</p>
+    </article>
+
+    <article>
+      <h3>Coral Bay Escape</h3>
+      <img src="images/beach2.jpg" alt="Coral Bay Escape" width="300" />
+      <p>A quiet, scenic bay ideal for snorkeling and peaceful evening walks along the coast.</p>
     </article>
   </section>
 
+  <!-- Temple Recommendations -->
   <section id="temple-section">
     <h2>Temple Recommendations</h2>
+
     <article>
       <h3>Ancient Harmony Temple</h3>
       <img src="images/temple1.jpg" alt="Ancient Harmony Temple" width="300" />
-      <img src="images/temple2.jpg" alt="Temple Interior" width="300" />
-      <p>Visit the Ancient Harmony Temple, a peaceful place filled with cultural heritage and beautiful architecture.</p>
+      <p>One of the oldest temples in the region, known for its peaceful gardens and ancient stone carvings.</p>
+    </article>
+
+    <article>
+      <h3>Golden Lotus Shrine</h3>
+      <img src="images/temple2.jpg" alt="Golden Lotus Shrine" width="300" />
+      <p>A modern temple built with gold-plated spires, drawing visitors for both worship and sightseeing.</p>
     </article>
   </section>
 
+  <!-- Country Recommendations -->
   <section id="country-section">
     <h2>Country Recommendations</h2>
+
     <article>
-      <h3>Explore Japan</h3>
+      <h3>Mount Fuji - Japan</h3>
       <img src="images/japan1.jpg" alt="Mount Fuji" width="300" />
+      <p>A symbol of Japan's natural beauty, Mount Fuji offers hiking trails and breathtaking sunrise views.</p>
+    </article>
+
+    <article>
+      <h3>Cherry Blossom Season - Japan</h3>
       <img src="images/japan2.jpg" alt="Cherry Blossoms" width="300" />
-      <p>Discover the blend of modern and traditional culture in Japan, from Mount Fuji to stunning cherry blossom festivals.</p>
+      <p>Experience Japan in spring when cities bloom with pink sakura — perfect for photography and festivals.</p>
     </article>
   </section>
 
+  <!-- JavaScript Search Logic -->
   <script>
     const searchInput = document.getElementById("searchInput");
     const searchBtn = document.getElementById("searchBtn");
@@ -74,9 +98,13 @@
       const keyword = searchInput.value.trim().toLowerCase();
       hideAll();
 
-      if (keyword.includes("beach")) beachSection.style.display = "block";
-      else if (keyword.includes("temple")) templeSection.style.display = "block";
-      else if (keyword.includes("country") || keyword.includes("japan")) countrySection.style.display = "block";
+      if (keyword.includes("beach")) {
+        beachSection.style.display = "block";
+      } else if (keyword.includes("temple")) {
+        templeSection.style.display = "block";
+      } else if (keyword.includes("country") || keyword.includes("japan")) {
+        countrySection.style.display = "block";
+      }
     });
 
     clearBtn.addEventListener("click", () => {
