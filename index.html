@@ -12,6 +12,11 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
+      <li>
+        <input id="searchInput" type="text" placeholder="Search (e.g., beach)" />
+      </li>
+      <li><button id="searchBtn">Search</button></li>
+      <li><button id="clearBtn">Clear</button></li>
     </ul>
   </nav>
 
@@ -20,7 +25,7 @@
     <p>Explore the best beaches, temples, and country-specific recommendations for your next vacation!</p>
   </section>
 
-  <section>
+  <section id="beach-section">
     <h2>Beach Recommendations</h2>
     <article>
       <h3>Sunny Shores Beach</h3>
@@ -30,7 +35,7 @@
     </article>
   </section>
 
-  <section>
+  <section id="temple-section">
     <h2>Temple Recommendations</h2>
     <article>
       <h3>Ancient Harmony Temple</h3>
@@ -40,7 +45,7 @@
     </article>
   </section>
 
-  <section>
+  <section id="country-section">
     <h2>Country Recommendations</h2>
     <article>
       <h3>Explore Japan</h3>
@@ -49,5 +54,37 @@
       <p>Discover the blend of modern and traditional culture in Japan, from Mount Fuji to stunning cherry blossom festivals.</p>
     </article>
   </section>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+    const clearBtn = document.getElementById("clearBtn");
+
+    const beachSection = document.getElementById("beach-section");
+    const templeSection = document.getElementById("temple-section");
+    const countrySection = document.getElementById("country-section");
+
+    function hideAll() {
+      beachSection.style.display = "none";
+      templeSection.style.display = "none";
+      countrySection.style.display = "none";
+    }
+
+    searchBtn.addEventListener("click", () => {
+      const keyword = searchInput.value.trim().toLowerCase();
+      hideAll();
+
+      if (keyword.includes("beach")) beachSection.style.display = "block";
+      else if (keyword.includes("temple")) templeSection.style.display = "block";
+      else if (keyword.includes("country") || keyword.includes("japan")) countrySection.style.display = "block";
+    });
+
+    clearBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      beachSection.style.display = "block";
+      templeSection.style.display = "block";
+      countrySection.style.display = "block";
+    });
+  </script>
 </body>
 </html>
